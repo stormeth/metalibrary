@@ -23,6 +23,14 @@ contract('Iterable Mapping 1', function(accounts) {
             assert.equal(sum, 11, "11 Should be the sum");
             console.log("11 = ", sum);
 
+            return meta.remove(1);
+        }).then(function() {
+
+            return meta.sum.call();
+        }).then(function(sum) {
+            assert.equal(sum, 1, "1 Should be the sum");
+            console.log("1 = ", sum);
+
         });
     });
 });

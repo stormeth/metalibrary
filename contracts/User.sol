@@ -6,6 +6,7 @@ contract User
 {
   // Just a struct holding our data.
   IterableMapping.itmap data;
+
   // Insert something
   function insert(uint k, uint v) returns (uint size)
   {
@@ -14,6 +15,16 @@ contract User
     // We can still access members of the struct - but we should take care not to mess with them.
     return data.size;
   }
+
+  // Remove something
+  function remove(uint k) returns (uint size)
+  {
+    // Actually calls itmap_impl.insert, auto-supplying the first parameter for us.
+    IterableMapping.remove(data, k);
+    // We can still access members of the struct - but we should take care not to mess with them.
+    return data.size;
+  }
+
   // Computes the sum of all stored data.
   function sum() returns (uint s)
   {
