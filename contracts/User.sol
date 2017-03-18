@@ -25,6 +25,15 @@ contract User
     return data.size;
   }
 
+  // Contains something
+  function contains(uint k) returns (bool value)
+  {
+    // Actually calls itmap_impl.insert, auto-supplying the first parameter for us.
+    value = IterableMapping.contains(data, k);
+    // We can still access members of the struct - but we should take care not to mess with them.
+    return value;
+  }
+
   // Computes the sum of all stored data.
   function sum() returns (uint s)
   {

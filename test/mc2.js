@@ -61,6 +61,15 @@ contract('Iterable Mapping 1', function(accounts) {
         }).then(function(sum) {
             assert.equal(sum, 1101, "1101 Should be the sum");
             console.log("1101 = ", sum);
+
+            return meta.contains.call(3);
+        }).then(function(yes) {
+            assert.equal(yes, true, "key 3 is in the mapping");
+
+            return meta.contains.call(4);
+        }).then(function(no) {
+            assert.equal(no, false, "key 4 is NOT in the mapping");
+
         });
     });
 
