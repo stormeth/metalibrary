@@ -9,7 +9,6 @@ contract('Cs1', function(accounts) {
             meta = instance;
             return meta.register(100);
         }).then(function() {
-            console.log("hi");
 
             return meta.there.call(100);
         }).then(function(good) {
