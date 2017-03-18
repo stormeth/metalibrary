@@ -12,5 +12,13 @@ contract CSet {
         if (!Set.insert(knownValues, value))
             throw;
     }
+
+    function there(uint value) returns (bool) {
+        if (Set.contains(knownValues, value))
+            return true;
+        return false;
+    }
+
+
     // In this contract, we can also directly access knownValues.flags, if we want.
 }
