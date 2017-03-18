@@ -33,4 +33,20 @@ contract('Iterable Mapping 1', function(accounts) {
 
         });
     });
+
+    it("t2", function() {
+        var meta;
+
+        return User.deployed().then(function(instance) {
+            meta = instance;
+            return meta.insert(2,100);
+        }).then(function() {
+
+            return meta.sum.call();
+        }).then(function(sum) {
+            assert.equal(sum, 101, "1 Should be the sum");
+            console.log("101 = ", sum);
+        });
+    });
+
 });
